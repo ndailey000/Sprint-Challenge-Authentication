@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Users = require('../users/user-model');
+const Users = require('../users/users-model');
 
 router.post('/register', (req, res) => {
   const user = req.body;
@@ -18,9 +18,7 @@ router.post('/register', (req, res) => {
   });
 })
 // above sends back the token with the saved user.
-.catch(error => {
-  res.status(500).json(error);
-});
+
 
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
